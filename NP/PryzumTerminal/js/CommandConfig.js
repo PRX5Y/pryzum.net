@@ -238,7 +238,7 @@ creativeminds = [
   '<span class="color5">--------------------------------------</span>',
   "<h1 class='h1ns'>Rohho</h1>",
   "     Responsible for the Music Production For Pryzum Videos",
-  "<h1 class='h1ns'>UwUtisum</h1>",
+  "<h1 class='h1ns'>Prx5y</h1>",
   "     Responsible for the Development of Pryzum.net & Video Production",
   "<h1 class='h1ns'>Raya</h1>",
   "     Responsible for Development of internal Pryzum databases",
