@@ -293,9 +293,11 @@ canvas {
   height: 100px;
 }
 
-.popup h2,
-.popup p {
+.popup h2 {
   margin-left: 135px; /* Space for the image on the left */
+}
+.popup p {
+  margin-left: 15px;
 }
 
 .popup.password-input .password-button {
