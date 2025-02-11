@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    background: transparent; /* Make sure body background is transparent */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+#wanted-list {
+    z-index: 10; /* Ensure wanted list is above the background */
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Ensure background is at the very back */
+}
+
+.wanted-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    transition: filter 0.5s ease;
+}
+
+.profile {
+    width: 200px;
+    padding: 20px;
+    background: rgba(70, 70, 70, 0.692);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: width 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 10; /* Ensure profiles are above the background */
+}
+
+.profile img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.profile .info {
+    margin-top: 10px;
+}
+
+.profile .extra-info {
+    display: none;
+}
+
+.enlarged {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; /* Increase width */
+    height: auto;
+    max-height: 80vh; /* Ensure it fits within the viewport */
+    overflow-y: auto; /* Enable scrolling if content is too long */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    background: rgba(70, 70, 70, 0.692);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.enlarged .extra-info {
+    display: block;
+    margin-top: 10px;
+}
+
+body.blurred::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    transition: opacity 0.5s ease;
+    opacity: 1;
+    pointer-events: none;
+}
+
+body:not(.blurred)::before {
+    opacity: 0;
+}
+
+video {
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  max-height: 100vh;
+}
+
+svg {
+/*   display: none; */
+  height: 0;
+  width: 0;
+  position: absolute;
+  animation: test 1s;
+}
+
+@keyframes test {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.video-right {
+  filter: url(#filter2);
+  width: 100%;
+  object-fit: cover;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.color {
+  background: linear-gradient(90deg, black 10%, white);
+  filter: url(#filter);
+  color: white;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  a {
+    color: white;
+  }
+}
+
+img {
+    z-index: 10;
+}
+

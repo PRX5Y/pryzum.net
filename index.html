@@ -1,52 +1,229 @@
-<title>Pryzum</title>
-<script  src="./EasterEgg.js"></script>
-<link rel="icon" type="image/x-icon" href="../../Sitelogo.png">
-<link rel="stylesheet" type="text/css" media="screen" href="./mainpage.css">
-<body>
-    <div class="noise"></div>
-    <div class="overlay"></div>
-    <div class="terminal">
-        <img src="https://femboy.beauty/uWbPJ.png" width="100" height="100" alt="PryzumLogo">
-        <h1>Pryzum<span class="errorcode">.net</span></h1>
-        <p class="output">Welcome Pryzum.net</p>
-        <p class="output">Go to The <a href="./PryzumTerminal/"><span class="errorcode">Pryzum Terminal</span></a></p>
-        <!-- <p class="output">Go to The <a href="./ShitList/"><span class="errorcode">Pryzum ShitList</span></a></p> -->
-        <p class="output">Go to <a href="https://files.pryzum.net/Downloads/"><span class="errorcode">Pryzum Data Downloads</span></a></p>
-        <div class="popupbackground" id="popupbackground">
-            <div class="popup password-input">
-                <img src="https://femboy.beauty/uWbPJ.png" width="100" height="100" alt="PryzumLogo">
-                <h2 style= "justify-content: center; align-items: center;">This Site is a work of fiction</h2>
-                <p style= "margin-left: 20px; margin-right: 20px; justify-content: center; align-items: center;">this site is not related to any real world groups or individuals<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Content on this site is used for Nopixel.net<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and is for <span class="errorcode">entertainment purposes only</span></p>
-                <img style= "position: absolute; top: 20px; left: 730px;" src="https://femboy.beauty/WPldb.png" width="100" height="100" alt="NoPixelLogo">
-                <!-- The Nopixel Logo is a trademark of nopixel.net -->
-                <button class="password-input" id="closePopup">Close</button>
-            </div>
-        </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pryzum.net">
+  <meta name="keywords" content="Pryzum, Purple RP, Nopixel, fictional site">
+  <meta name="author" content="Prx5y">
+  <meta property="og:title" content="Pryzum.net">
+  <meta property="og:description" content="Pryzum.net">
+  <meta property="og:image" content="https://femboy.beauty/78gg7">
+  <meta property="og:url" content="https://pryzum.net">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pryzum.net">
+  <meta name="twitter:description" content="Pryzum.net">
+  <meta name="twitter:image" content="https://femboy.beauty/78gg7">
+  <title>Pryzum.net</title>
+  <link rel="icon" type="image/x-icon" href="https://femboy.beauty/uWbPJ.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="./mainpage.css">
+  <style>
+    /* Loading screen styles */
+    #loadingScreen {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+      transition: opacity 1s ease-out;
+      font-family: "Inconsolata", monospace;
+      font-size: 15px;
+      text-align: center; /* Center text horizontally */
+    }
 
-    <script src="./script.js"></script>
-    <script>
-        const closePopupButton = document.getElementById('closePopup');
-        const popupbackground = document.getElementById('popupbackground');
-        const popup = document.querySelector('.popup');
-    
-        window.addEventListener('load', () => {
-            popupbackground.classList.add('show');
-            popup.classList.add('show');
-        });
-    
-        closePopupButton.addEventListener('click', () => {
-            popup.classList.add('hide');
-            popupbackground.classList.add('hide'); // Add hide class to popupbackground
-    
-            // Use setTimeout to match the CSS transition duration
-            setTimeout(() => {
-                popupbackground.classList.remove('show', 'hide');
-                popup.classList.remove('show', 'hide');
-            }, 500); // Match this duration with the CSS transition duration
-        });
-    </script>    
+    #loadingScreen h1, #loadingScreen img {
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #loadingScreen video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: blur(5px); /* Add blur effect */
+      transition: filter 1s ease-out; /* Transition for blur effect */
+    }
+
+    #loadingBar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 140px;
+      background-color: #000;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      transition: width 4s ease-in-out, opacity 1s ease-in-out;
+    }
+
+    #loadingImage {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      width: 254px;
+      height: auto; 
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading screen -->
+  <div id="loadingScreen">
+    <video autoplay muted loop>
+      <source src="./media/backgroundvideo2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <h1 id="loadingText">Loading...</h1>
+    <div id="loadingBar"></div>
+    <img id="loadingImage" src="https://femboy.beauty/HDnGf.png" alt="Loading Image" style="display: none;">
+  </div>
+
+  <div class="noise"></div>
+  <div class="overlay"></div>
+  <div id="imageContainer"></div>
+  <div class="terminal">
+    <img src="https://femboy.beauty/uWbPJ.png" width="100" height="100" alt="PryzumLogo">
+    <h1>Welcome to <span class="errorcode">Pryzum.net</span></h1>
+    <p class="output">Please Pick what community you want to view</p>
+    <div class="password-container">
+      <button class="cybr-btn prp-btn" onclick="prpbutton()">
+        Purple RP
+        <span aria-hidden>_</span>
+        <span aria-hidden class="cybr-btn__glitch">Purple RP_</span>
+        <span aria-hidden class="cybr-btn__tag">R25</span>
+      </button>
+      <button class="cybr-btn np-btn" onclick="npbutton()">
+        Nopixel
+        <span aria-hidden>_</span>
+        <span aria-hidden class="cybr-btn__glitch">Nopixel_</span>
+        <span aria-hidden class="cybr-btn__tag">R25</span>
+      </button>
+    </div>
+    <p class="output"><span class="errorcode"><a href="https://pryzum.net">Pryzum.net</a></span> is a project by Prx5y</p>
+    <div class="popupbackground" id="popupbackground">
+      <div class="popup password-input">
+          <img src="https://femboy.beauty/uWbPJ.png" width="100" height="100" alt="PryzumLogo">
+          <h2>This Site is a work of fiction</h2>
+          <p><span class="errorcode">this site is not related to any real world groups or individuals</span></p>
+          <img style="position: absolute; top: 20px; left: 730px;" src="https://femboy.beauty/uWbPJ.png" width="100" height="100" alt="PryzumLogo">
+          <button class="password-input" id="closePopup">Close</button>
+      </div>
+    </div>
+  </div>
+  <!-- Hidden container for preloading images -->
+  <div id="preloadContainer" style="display: none;"></div>
+
+  <script src="./js/PRPMenu.js"></script>
+  <script src="./js/NPMenu.js"></script>
+  <script src="./EasterEgg.js"></script>
+  <script>
+    const closePopupButton = document.getElementById('closePopup');
+    const popupbackground = document.getElementById('popupbackground');
+    const popup = document.querySelector('.popup');
+
+    closePopupButton.addEventListener('click', () => {
+        popup.classList.add('hide');
+        popupbackground.classList.add('hide'); // Add hide class to popupbackground
+
+        // Use setTimeout to match the CSS transition duration
+        setTimeout(() => {
+            popupbackground.classList.remove('show', 'hide');
+            popup.classList.remove('show', 'hide');
+        }, 500); // Match this duration with the CSS transition duration
+    });
+
+    // Function to change the loading text and handle the fade effect
+    function changeLoadingText(text, delay) {
+      return new Promise((resolve) => {
+        const loadingText = document.getElementById('loadingText');
+        const loadingImage = document.getElementById('loadingImage');
+        const loadingBar = document.getElementById('loadingBar');
+        loadingText.style.opacity = '0';
+        loadingImage.style.opacity = '0';
+        setTimeout(() => {
+          if (text === 'image') {
+            loadingText.style.display = 'none';
+            loadingImage.style.display = 'block';
+            loadingImage.style.animation = 'fadeIn 1s forwards';
+          } else {
+            loadingText.style.display = 'block';
+            loadingImage.style.display = 'none';
+            loadingText.textContent = text;
+            loadingText.style.opacity = '1';
+          }
+          setTimeout(() => {
+            resolve();
+          }, delay);
+        }, 1000); // Match this duration with the CSS transition duration
+      });
+    }
+
+    // Sequence of text changes
+    async function runLoadingSequence() {
+      await changeLoadingText('Join', 2000);
+      await changeLoadingText('The', 2000);
+      await changeLoadingText('Revolution', 2000);
+      const loadingBar = document.getElementById('loadingBar');
+      loadingBar.style.opacity = '1';
+      loadingBar.style.width = '100%';
+      await new Promise(resolve => setTimeout(resolve, 4000));
+      setTimeout(() => {
+        const loadingImage = document.getElementById('loadingImage');
+        loadingImage.style.animation = 'fadeIn 1s forwards';
+      }, 500); // Delay the image appearance by 0.5 seconds
+      await changeLoadingText('image', 100); // Show the image
+      setTimeout(() => {
+        const loadingScreen = document.getElementById('loadingScreen');
+        loadingScreen.style.opacity = '0';
+        const video = document.querySelector('#loadingScreen video');
+        video.style.filter = 'blur(0)'; // Remove blur effect
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+          // Show the popup after the loading screen is fully finished
+          popupbackground.classList.add('show', 500);
+          popup.classList.add('show', 500);
+        }, 1000); // Match this duration with the CSS transition duration
+      }, 2000); // Delay the loading screen fade out by 2 seconds
+    }
+
+    // Start the loading sequence
+    runLoadingSequence();
+  </script>
 </body>
+</html>
 
 
 

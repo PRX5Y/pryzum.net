@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanted List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="background">
+        <div class="container container--preview">
+            <img class="video-right" src="https://assets.codepen.io/108721/right.gif" alt="">
+        </div>
+        <div class="container container--no-preview">
+        <video class="video-right" loop autoplay muted preload="none" poster="https://assets.codepen.io/108721/videoframe_0+%281%29.png">
+            <source src="https://femboy.beauty/pZPtf.mp4" type="video/mp4">
+        Debug Message: Your browser does not support the video tag.
+        </video>
+        </div>
+        <svg>
+            <filter id="filter2" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+                <feFlood flood-color="#000000" flood-opacity="0.50" x="0%" y="0%" result="flood"/>
+                <feBlend mode="normal" x="0%" y="0%" in="SourceGraphic" in2="flood" result="blend1"/>
+                <feImage class="ditherImage" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA5ElEQVQYlQXBgQbCUABA0fdrk0ySSZJJkiRJMjOTTGZmkiRJZiYzyczMzGQmfdrtHPH7/TgcDuR5zna7pWka9vs9aZqyXq8R0+mU5/OJoihcLhfG4zFBENDtdjmdToj3+81yueTz+WCaJnEcM5/PKcsSXdcRsizjeR6j0YjH40Gr1cJxHAaDAbfbDVHXNbvdjiRJWK1WfL9fLMsiyzI2mw1CVVV836fT6XA8HplMJoRhSK/X43w+I6IoYjabURQFmqbxer1YLBZUVYVhGAhJkrBtm36/z/V6pd1u47ouw+GQ+/3OH4/Fn8FvF/NxAAAAAElFTkSuQmCC" x="0" y="0" width="4" height="4" crossOrigin="anonymous" result="image1"/>
+                <feTile x="0" y="0"  in="image1" result="tile"/>
+                <feBlend mode="overlay" x="0%" y="0%"  in="blend1" in2="tile" result="blend2"/>
+                <feColorMatrix type="saturate" values="0"/>
+                <feComponentTransfer>
+                <feFuncR type="discrete" tableValues="0 0.5 1"/>
+                <feFuncG type="discrete" tableValues="0 0"/>
+                <feFuncB type="discrete" tableValues="0 0"/>
+                </feComponentTransfer>
+            </filter>
+        </svg>
+        <script  src="./BG_script.js"></script>
+    </div>
+    <img src="./Pryzym Logo.png">.........................<br>
+    <div class="wanted-list">
+        <div class="profile" onclick="toggleProfile(this)">
+            <img src="https://i.vgy.me/czFOBh.png" alt="Profile 1">
+            <div class="info">
+                <h2>January Fooze</h2>
+                <p>Making extreamly questionable comments<br>to pryzum field agents</p>
+                <b style="font-size: 11px; color:#000000; background-color: #ffffff"><p class="extra-info">Declassified Pryzum Target info:<br><a href="https://files.pryzum.net/Documents/Public_Reports/Pryzum_AGENT_INTEL_REPORT_12_08_2024_January_Fooze.pdf">INTEL_REPORT_12_08_2024_January_Fooze</a></b></p>
+            </div>
+        </div>
+        <div class="profile" onclick="toggleProfile(this)">
+            <img src="https://kappa.lol/8ARF6.png" alt="Profile 1">
+            <div class="info">
+                <h2>Nana Banana</h2>
+                <p>Responsible for the Murder of Chastity Marie Sanders</p>
+                <p class="extra-info">Chastity was kidnaped by Nana at a theatre event 'Shakespeare in the park', the same day Nana got a threatening anon phone call, thinking this had something to do with chastity, this lead to Nana giving Chastity 24hours to tell them who threatened her but Chastity literally did not know who the caller was, subsequently Nana kidnaped Chastity again over the anon phone calls and proceeded to execute her, <br><br> Chastity would later succumb to her injury's less than 4 hours later in the ICU and pass away <br><br>To Nana: You killed a woman because of an anon phone call you got despite her begging on her knees and yelling at you she did not know who it was you still stood there and drove a knife right into her heart</p>
+            </div>
+        </div>
+        <div class="profile" onclick="toggleProfile(this)">
+            <img src="https://femboy.beauty/VuvTc.png" alt="Profile 1">
+            <div class="info">
+                <h2>Hydra</h2>
+                <p>Scummy Practices</p>
+                <p class="extra-info">Pryzum has recived Multiple indipendant reports of hydra robbing sanitation workers and using threats to make others sell mattireals to them, We will be keeping a close eye on you lot</p>
+            </div>
+        </div>
+        <div class="profile" onclick="toggleProfile(this)">
+            <img src="./Pryzym Logo.png">
+            <div class="info">
+                <h2>Nino Chavez</h2>
+                <p>[Update to be posted soon]</p>
+                <p class="extra-info"><iframe width="400" height="200" src="https://www.youtube.com/embed/HWjCStB6k4o?si=yomY547IOWQsWXN4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

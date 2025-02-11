@@ -1,0 +1,214 @@
+body {
+  margin: 0;
+  min-height: 99%;
+  width: 100%;
+  min-width: 550px;
+  color: #f8ff8f;
+  font-size: 14px;
+  font-family: cursor, monospace;
+  overflow-x: hidden;
+}
+::selection {
+  color: #211830;
+  background-color: #caf9ff;
+}
+::-moz-selection {
+  color: #211830;
+  background-color: #bbbbbb;
+}
+textarea {
+  left: -1000px;
+  position: absolute;
+  background: transparent;
+  border: none;
+  outline-width: 0;
+}
+b {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.h1ns {
+  margin: 0;
+  padding: 0;
+}
+/* Cursor Start */
+.cursor {
+  font-size: 12px;
+  color: #73ABAD;
+  background-color: #73ABAD;
+  position: relative;
+  opacity: 1;
+  height: 1.5em;
+  width: 10px;
+  max-width: 10px;
+  transform: translateY(4px);
+  overflow: hidden;
+  text-indent: -5px;
+  display: inline-block;
+  text-decoration: blink;
+  animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+#command {
+  cursor: text;
+  height: 50px;
+  color: #73ABAD;
+}
+#textliner {
+  line-height: 1.3em;
+  margin-top: -2px;
+  animation: show 0.5s ease forwards;
+  animation-delay: 6.3s;
+  opacity: 0;
+}
+#liner {
+  line-height: 1.3em;
+  margin-top: -2px;
+  animation: show 0.5s ease forwards;
+  animation-delay: 6.3s;
+  opacity: 0;
+}
+#liner::before {
+  color: #ac0b40;
+  content: "Pryzum@104.21.26.119:-$";
+}
+#liner.password::before {
+  content: "Password:";
+}
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Cursor End */
+p {
+  display: block;
+  line-height: 1.3em;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  letter-spacing: 0.05em;
+  animation: typing 0.5s steps(30, end);
+}
+.no-animation {
+  animation: typing 0 steps(30, end);
+}
+.margin {
+  margin-left: 20px;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.index {
+  color: #DCDCCC;
+}
+a:link {
+  color: #686854;
+}
+.color2 {
+  color: #c25668;
+}
+.color3 {
+  color: #ee4c4c;
+  text-shadow: 0 0 5px #ee4c4c;
+}
+.color4 {
+  color: #51ff99;
+  text-shadow: 0 0 5px #51ff99;
+}
+.color5 {
+  color: #ff1d78;
+  text-shadow: 0 0 5px #ff1d78;
+}
+.command {
+  color: #73ABAD;
+  text-shadow: 0 0 5px #73ABAD; 
+}
+.error {
+  color: #B89076;
+}
+.white {
+  color: #fff;
+}
+.inherit,
+a {
+  color: #9C8394;
+}
+a {
+  text-decoration: inherit;
+}
+a:hover {
+  background: #73ABAD;
+  color: #211830;
+}
+a:focus {
+  outline: 0;
+}
+::selection{
+  background: rgba(255, 8, 181, 0.5);
+}
+
+/* first line of neo fetch command */
+.neofetchcolour1 {
+  color: #000000;
+}
+.neofetchcolour2 {
+  color: #970000;
+}
+.neofetchcolour3 {
+  color: #137400;
+}
+.neofetchcolour4 {
+  color: #c4c700;
+}
+.neofetchcolour5 {
+  color: #1c41b8;
+}
+.neofetchcolour6 {
+  color: #4a1ca0;
+}
+.neofetchcolour7 {
+  color: #297897;
+}
+.neofetchcolour7 {
+  color: #a7a7a7;
+}
+
+/* second line of neo fetch command */
+.neofetch2colour1 {
+  color: #808080;
+}
+.neofetch2colour2 {
+  color: #ff4e4e;
+}
+.neofetch2colour3 {
+  color: #36da16;
+}
+.neofetch2colour4 {
+  color: #fdff70;
+}
+.neofetch2colour5 {
+  color: #6f91ff;
+}
+.neofetch2colour6 {
+  color: #8e51ff;
+}
+.neofetch2colour7 {
+  color: #297897;
+}
+.neofetch2colour7 {
+  color: #ffffff;
+}

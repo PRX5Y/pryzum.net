@@ -1,0 +1,303 @@
+
+html {
+  min-height: 100%;
+}
+/*
+body {
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  background-color: #000000;
+  background-image: radial-gradient(#581132, #16040b), url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
+  background-repeat: no-repeat, no-repeat; 
+  background-size: cover, cover; 
+  background-position: center, center;
+  color: rgba(255, 0, 106, 0.8);
+  text-shadow: 0 0 1ex #74003a, 0 0 2px rgba(255, 255, 255, 0.8);
+}
+*/
+body {
+  box-sizing: border-box;
+  height: 100%;
+  background: linear-gradient(183deg, rgba(141,35,46,0.5) 1%, rgba(141,35,46,0) 60%), 
+              linear-gradient(250deg, rgba(141,35,46,0) 21%, rgba(141,35,46,0.2) 20%, rgba(11,35,47,0.2) 50%),
+              linear-gradient(250deg, rgba(141,35,46,0) 23%, rgba(141,35,46,0.2) 20%, rgba(11,35,47,0.2) 50%),
+              linear-gradient(250deg, rgba(141,35,46,0) 25%, rgba(141,35,46,0.2) 20%, rgba(11,35,47,0.2) 50%),
+              repeating-linear-gradient(179deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 3px, rgba(0,0,0,0.1) 3px, rgba(0,0,0,0.1) 5px);;
+ 
+  background-color: #0b232f;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: rgba(255, 0, 106, 0.8);
+  text-shadow: 0 0 1ex #74003a, 0 0 2px rgba(255, 255, 255, 0.8);
+}
+.noise {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
+  background-repeat: no-repeat; /* No repeat for the GIF */
+  background-size: cover; /* Make the GIF always cover the entire screen */
+  background-position: center; /* Center the GIF */
+  z-index: -1;
+  opacity: 0.02;
+}
+
+::selection{
+  background: rgba(255, 8, 181, 0.5);
+}
+.overlay {
+  pointer-events: none;
+  position: fixed; /* Change to fixed to stick to the viewport */
+  width: 100%;
+  min-height: 100vh; /* Use min-height to extend indefinitely */
+  background: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+  background-size: auto 4px;
+  z-index: 2000;
+}
+
+.overlay::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, transparent 0%, rgba(128, 32, 72, 0.2) 2%, rgba(128, 32, 80, 0.8) 3%, rgba(128, 32, 80, 0.2) 3%, transparent 100%);
+  background-repeat: no-repeat;
+  -webkit-animation: scan 7.5s linear 0s infinite;
+  animation: scan 7.5s linear 0s infinite;
+}
+
+@-webkit-keyframes scan {
+  0% {
+    background-position: 0 -100vh;
+  }
+  35%, 100% {
+    background-position: 0 100vh;
+  }
+}
+@keyframes scan {
+  0% {
+    background-position: 0 -100vh;
+  }
+  35%, 100% {
+    background-position: 0 100vh;
+  }
+}
+.hidden {
+  opacity: 0;
+}
+.output {
+  color: rgba(255, 128, 187, 0.8);
+  text-shadow: 0 0 1px rgba(255, 51, 119, 0.4), 0 0 2px rgba(255, 255, 255, 0.8);
+}
+.output::before {
+  content: "> ";
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+.errorcode {
+  color: white;
+}
+.password-container {
+  margin-top: 20px;
+}
+.password-input {
+  background: none;
+  border: 1px solid rgba(255, 0, 106, 0.8);
+  color: rgba(255, 0, 106, 0.8);
+  padding: 0.5rem;
+  font-family: "Inconsolata", Helvetica, sans-serif;
+  font-size: 1.5rem;
+}
+.password-button {
+  background-color: rgba(255, 0, 106, 0.8);
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-family: "Inconsolata", Helvetica, sans-serif;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+@keyframes fadein {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  color: #000000;
+  filter: blur(3px);
+}
+
+#canvas {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+#video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  z-index: -999;
+}
+
+#content {
+  position: relative;
+  z-index: 300;
+  color: #000000;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 38%;
+  animation: fadein 7s;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#embed-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+iframe {
+  border: none;
+  max-width: 100%;
+  max-height: 100%;
+  width: 560px;
+  height: 384px;
+}
+
+#canvasholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  max-width: 100%;
+  max-height: 100%;
+  image-rendering: pixelated;
+}
+
+.popupbackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1000;
+  transition: opacity 0.5s ease, visibility 0.5s ease; /* Ensure visibility and opacity transition */
+  overflow: hidden; /* Prevent scrollbars from appearing */
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background: rgba(0, 0, 0, 0.253);
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: left; /* Align text to the left */
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Ensure transition */
+}
+
+.popup img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.popup h2,
+.popup p {
+  margin-left: 135px; /* Space for the image on the left */
+}
+
+.popup.password-input .password-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.popupbackground.show {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popupbackground.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.popup.show {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup.hide {
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}

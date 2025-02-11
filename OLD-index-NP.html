@@ -1,0 +1,52 @@
+<title>Pryzum</title>
+<script  src="./EasterEgg.js"></script>
+<link rel="icon" type="image/x-icon" href="../../Sitelogo.png">
+<link rel="stylesheet" type="text/css" media="screen" href="./mainpage.css">
+<body>
+    <div class="noise"></div>
+    <div class="overlay"></div>
+    <div class="terminal">
+        <img src="https://femboy.beauty/uWbPJ.png" width="100" height="100" alt="PryzumLogo">
+        <h1>Pryzum<span class="errorcode">.net</span></h1>
+        <p class="output">Welcome Pryzum.net</p>
+        <p class="output">Go to The <a href="./PryzumTerminal/"><span class="errorcode">Pryzum Terminal</span></a></p>
+        <!-- <p class="output">Go to The <a href="./ShitList/"><span class="errorcode">Pryzum ShitList</span></a></p> -->
+        <p class="output">Go to <a href="https://files.pryzum.net/Downloads/"><span class="errorcode">Pryzum Data Downloads</span></a></p>
+        <div class="popupbackground" id="popupbackground">
+            <div class="popup password-input">
+                <img src="https://femboy.beauty/uWbPJ.png" width="100" height="100" alt="PryzumLogo">
+                <h2 style= "justify-content: center; align-items: center;">This Site is a work of fiction</h2>
+                <p style= "margin-left: 20px; margin-right: 20px; justify-content: center; align-items: center;">this site is not related to any real world groups or individuals<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Content on this site is used for Nopixel.net<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and is for <span class="errorcode">entertainment purposes only</span></p>
+                <img style= "position: absolute; top: 20px; left: 730px;" src="https://femboy.beauty/WPldb.png" width="100" height="100" alt="NoPixelLogo">
+                <!-- The Nopixel Logo is a trademark of nopixel.net -->
+                <button class="password-input" id="closePopup">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script>
+        const closePopupButton = document.getElementById('closePopup');
+        const popupbackground = document.getElementById('popupbackground');
+        const popup = document.querySelector('.popup');
+    
+        window.addEventListener('load', () => {
+            popupbackground.classList.add('show');
+            popup.classList.add('show');
+        });
+    
+        closePopupButton.addEventListener('click', () => {
+            popup.classList.add('hide');
+            popupbackground.classList.add('hide'); // Add hide class to popupbackground
+    
+            // Use setTimeout to match the CSS transition duration
+            setTimeout(() => {
+                popupbackground.classList.remove('show', 'hide');
+                popup.classList.remove('show', 'hide');
+            }, 500); // Match this duration with the CSS transition duration
+        });
+    </script>    
+</body>
+
+
+
