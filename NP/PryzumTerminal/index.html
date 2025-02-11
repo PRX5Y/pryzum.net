@@ -7,23 +7,67 @@
   <link rel="stylesheet" type="text/css" media="screen" href="./css/mainpage.css">
   <link rel="icon" type="image/x-icon" href="./img/startuplogo.png">
   <!-- Flag{ANONIMITY_IS_THE_BEST_THING_SOMEONE_CAN_HAVE} -->
+  <style>
+    html, body, button, a, textarea {
+      cursor: none;
+    }
+    .custom-cursor {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      mix-blend-mode: difference;
+      z-index: 10000;   
+      transition: transform 0.1s ease, fill 0.3s ease;
+    }
+  </style>
 </head>
-<div class="noise"></div>
-<div class="overlay"></div>
 <body class="glitch hacktheplanet">
-  <div style = "padding: 15px 20px;" class="container">
+  <div class="noise"></div>
+  <div class="overlay"></div>
+  <div style="padding: 15px 20px;" class="container">
     <div id="terminal">
       <a id="before"></a>
-      </div>
-      <div id="command" onclick="$('texter').focus();">
+    </div>
+    <div id="command" onclick="$('texter').focus();">
       <textarea type="text" id="texter" onkeyup="typeIt(this, event)" onkeydown="typeIt(this, event); 
                   moveIt(this.value.length, event)" onkeypress="typeIt(this, event);" autofocus=""></textarea>
       <div id="liner">
-        <span id="typer"></span><b class="cursor" id="cursor">█</b>
+        <span id="typer"></span><b class="cursor" id="textCursor">█</b>
       </div>
+    </div>
   </div>
-</body>
   <script src="./js/Main.js"></script>
   <script src="./js/CommandConfig.js"></script>
   <script src="./js/Cursor.js"></script>
-</body></html>
+  <div class="custom-cursor" id="customCursor">
+    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+      <g>
+       <rect id="canvas_background" height="32" width="32" y="-1" x="-1"/>
+       <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+        <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+       </g>
+      </g>
+      <g>
+       <g stroke="null" id="svg_4">
+        <rect stroke="#000" id="svg_1" height="30.08503" width="29.97745" y="-0.0771" x="0.00746" stroke-width="0" fill="#6ef0fd"/>
+        <rect stroke="#000" id="svg_3" height="24.06803" width="24.08055" y="2.93141" x="2.94642" stroke-width="0" fill="#15111f"/>
+       </g>
+       <rect stroke="#6ef0fd" id="svg_5" height="3.06595" width="12.10406" y="12.72462" x="8.72043" stroke-width="0.5" fill="#011115"/>
+      </g>
+     </svg>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script>
+    //----------Cyberpunk Cursor----------//
+    const $customCursor = document.querySelector('#customCursor');
+
+    // Cursor Listeners
+    document.body.addEventListener('mousemove', onMouseMove);
+
+    // Move cursor
+    function onMouseMove(e) {
+      gsap.to($customCursor, { duration: 0.1, x: e.clientX - 15, y: e.clientY - 15 });
+    }
+  </script>
+</html>

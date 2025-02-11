@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" type="text/css" media="screen" href="./mainpage.css">
   <style>
-    body {
+    body, button, a {
       cursor: none;
     }
     /* Loading screen styles */
@@ -106,8 +106,9 @@
       top: 0;
       left: 0;
       mix-blend-mode: difference;
-      z-index: 1000;   
-    } 
+      z-index: 5000;   
+      transition: fill 0.3s ease;
+    }
   </style>
 </head>
 <body>
@@ -115,14 +116,12 @@
     <div id="cursor">
       <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
         <g>
-         <title>Outer Square</title>
          <rect id="canvas_background" height="32" width="32" y="-1" x="-1"/>
          <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
           <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
          </g>
         </g>
         <g>
-         <title>Inner Square</title>
          <g stroke="null" id="svg_4">
           <rect stroke="#000" id="svg_1" height="30.08503" width="29.97745" y="-0.0771" x="0.00746" stroke-width="0" fill="#6ef0fd"/>
           <rect stroke="#000" id="svg_3" height="24.06803" width="24.08055" y="2.93141" x="2.94642" stroke-width="0" fill="#15111f"/>
@@ -255,12 +254,11 @@
     // Start the loading sequence
     runLoadingSequence();
 
-    //Cyberpunk cursor
+    //----------Cyberpunk Cursor----------//
     const $cursor = document.querySelector('#cursor');
 
-    // Listeners
+    // Cursor Listeners
     document.body.addEventListener('mousemove', onMouseMove);
-
     // Move cursor
     function onMouseMove(e) {
       gsap.to($cursor, { duration: 0.1, x: e.pageX - 15, y: e.pageY - 15 });
