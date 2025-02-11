@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" type="text/css" media="screen" href="./mainpage.css">
   <style>
+    body {
+      cursor: none;
+    }
     /* Loading screen styles */
     #loadingScreen {
       position: fixed;
@@ -97,9 +100,38 @@
         opacity: 0;
       }
     }
+    .cursor {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      mix-blend-mode: difference;
+      z-index: 1000;   
+    } 
   </style>
 </head>
 <body>
+  <div class="cursor">
+    <div id="cursor">
+      <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+        <g>
+         <title>Outer Square</title>
+         <rect id="canvas_background" height="32" width="32" y="-1" x="-1"/>
+         <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+          <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+         </g>
+        </g>
+        <g>
+         <title>Inner Square</title>
+         <g stroke="null" id="svg_4">
+          <rect stroke="#000" id="svg_1" height="30.08503" width="29.97745" y="-0.0771" x="0.00746" stroke-width="0" fill="#6ef0fd"/>
+          <rect stroke="#000" id="svg_3" height="24.06803" width="24.08055" y="2.93141" x="2.94642" stroke-width="0" fill="#15111f"/>
+         </g>
+         <rect stroke="#6ef0fd" id="svg_5" height="3.06595" width="12.10406" y="12.72462" x="8.72043" stroke-width="0.5" fill="#011115"/>
+        </g>
+       </svg>
+    </div>
+  </div>
   <!-- Loading screen -->
   <div id="loadingScreen">
     <video autoplay muted loop>
@@ -149,6 +181,7 @@
   <script src="./js/PRPMenu.js"></script>
   <script src="./js/NPMenu.js"></script>
   <script src="./EasterEgg.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script>
     const closePopupButton = document.getElementById('closePopup');
     const popupbackground = document.getElementById('popupbackground');
@@ -221,6 +254,17 @@
 
     // Start the loading sequence
     runLoadingSequence();
+
+    //Cyberpunk cursor
+    const $cursor = document.querySelector('#cursor');
+
+    // Listeners
+    document.body.addEventListener('mousemove', onMouseMove);
+
+    // Move cursor
+    function onMouseMove(e) {
+      gsap.to($cursor, { duration: 0.1, x: e.pageX - 15, y: e.pageY - 15 });
+    }
   </script>
 </body>
 </html>
