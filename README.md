@@ -1,4 +1,4 @@
-# Pryzum.net
+# Pryzum.net 
 Pryzum Website Source Code<br>
 Pryzum is a group in the GTA FiveM server Nopixel and has no relation to Real life events or groups <br>
 this website is for entertainment only and is not endorsed or officially from nopixel
